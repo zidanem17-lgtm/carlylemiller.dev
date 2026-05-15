@@ -640,8 +640,9 @@ p { color: var(--muted); line-height: 1.7; }
   object-fit: cover;
   object-position: center;
 }
-.project-featured .proj-logo-img.cover {
+.mailfort-fit {
   object-fit: contain;
+  object-position: center;
   padding: 16px;
 }
 .proj-logo-img.contain {
