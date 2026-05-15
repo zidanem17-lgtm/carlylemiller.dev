@@ -58,6 +58,40 @@ a { color: inherit; }
     linear-gradient(90deg, rgba(255,255,255,.038) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 70%);
+  overflow: hidden;
+}
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 70px,
+      rgba(94,255,216,0.12) 70px 72px,
+      transparent 72px 140px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 90px,
+      rgba(94,255,216,0.08) 90px 92px,
+      transparent 92px 180px
+    );
+  opacity: 0.18;
+  filter: drop-shadow(0 0 8px rgba(94,255,216,0.25));
+  animation: circuit-trace 24s linear infinite;
+}
+.bg-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(94,255,216,0.35) 0 2px, transparent 4px),
+    radial-gradient(circle at 72% 35%, rgba(94,255,216,0.3) 0 2px, transparent 4px),
+    radial-gradient(circle at 56% 66%, rgba(94,255,216,0.28) 0 2px, transparent 4px),
+    radial-gradient(circle at 86% 74%, rgba(94,255,216,0.3) 0 2px, transparent 4px);
+  opacity: 0.45;
+  animation: circuit-pulse 3.8s ease-in-out infinite alternate;
 }
 body::before {
   content: '';
@@ -543,6 +577,14 @@ p { color: var(--muted); line-height: 1.7; }
 /* ─── REVEAL ANIMATION ─── */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.75s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+@keyframes circuit-trace {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-70px, -90px, 0); }
+}
+@keyframes circuit-pulse {
+  from { opacity: 0.22; }
+  to { opacity: 0.52; }
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1100px) {
@@ -597,6 +639,10 @@ p { color: var(--muted); line-height: 1.7; }
 .proj-logo-img.cover {
   object-fit: cover;
   object-position: center;
+}
+.project-featured .proj-logo-img.cover {
+  object-fit: contain;
+  padding: 16px;
 }
 .proj-logo-img.contain {
   object-fit: contain;

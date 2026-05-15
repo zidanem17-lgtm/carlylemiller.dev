@@ -5,26 +5,28 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const navToggle = document.getElementById('nav-toggle');
 const mainNav = document.getElementById('main-nav');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-// Close nav on link click
-mainNav.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   });
-});
 
-// Close nav on outside click
-document.addEventListener('click', (e) => {
-  if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-    mainNav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }
-});
+  // Close nav on link click
+  mainNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close nav on outside click
+  document.addEventListener('click', (e) => {
+    if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
 
 // ─── SCROLL REVEAL ───
 const observer = new IntersectionObserver(
@@ -73,27 +75,31 @@ const success   = document.getElementById('form-success');
 const error     = document.getElementById('form-error');
 
 function openModal() {
+  if (!overlay) return;
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
-  setTimeout(() => closeBtn.focus(), 100);
+  if (closeBtn) setTimeout(() => closeBtn.focus(), 100);
 }
 function closeModal() {
+  if (!overlay) return;
   overlay.classList.remove('open');
   document.body.style.overflow = '';
 }
 
-if (trigger) trigger.addEventListener('click', openModal);
-if (closeBtn) closeBtn.addEventListener('click', closeModal);
+if (trigger && overlay) trigger.addEventListener('click', openModal);
+if (closeBtn && overlay) closeBtn.addEventListener('click', closeModal);
 
-// Close on backdrop click
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) closeModal();
-});
+if (overlay) {
+  // Close on backdrop click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
 
-// Close on ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-});
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+}
 
 // Form submission via Formspree (AJAX)
 if (form) {
