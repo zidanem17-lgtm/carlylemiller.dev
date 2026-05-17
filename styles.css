@@ -500,7 +500,6 @@ p { color: var(--muted); line-height: 1.7; }
 .project-card-link {
   color: inherit;
   text-decoration: none;
-  cursor: pointer;
 }
 .project-card:hover { border-color: var(--accent-md); transform: translateY(-3px); }
 .project-card .proj-visual { min-height: 180px; }
