@@ -43,29 +43,6 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-// ─── CLICKABLE PROJECT CARDS ───
-document.querySelectorAll('[data-href]').forEach((card) => {
-  const openCardLink = () => {
-    const href = card.getAttribute('data-href');
-
-    if (href) {
-      window.open(href, '_blank', 'noopener');
-    }
-  };
-
-  card.addEventListener('click', (event) => {
-    if (event.target.closest('a, button')) return;
-    openCardLink();
-  });
-
-  card.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      openCardLink();
-    }
-  });
-});
-
 // ─── ACTIVE NAV HIGHLIGHT ───
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav a');
