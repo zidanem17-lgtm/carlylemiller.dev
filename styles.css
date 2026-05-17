@@ -511,6 +511,10 @@ p { color: var(--muted); line-height: 1.7; }
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
+.project-card-overlay:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
 .project-card:hover { border-color: var(--accent-md); transform: translateY(-3px); }
 .project-card .proj-visual { min-height: 180px; }
 .project-card .proj-body { padding: 28px; }
