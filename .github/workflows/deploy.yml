@@ -25,3 +25,19 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Verify live site
+        run: |
+          echo "--- workers.dev status ---"
+          curl -sS -o /dev/null -w "%{http_code}\n" "https://zidanem17-lgtm-carlylemiller-dev.zidanem17.workers.dev/"
+          echo "--- workers.dev headers ---"
+          curl -sSI "https://zidanem17-lgtm-carlylemiller-dev.zidanem17.workers.dev/"
+          echo "--- workers.dev body (first 2KB) ---"
+          curl -sS "https://zidanem17-lgtm-carlylemiller-dev.zidanem17.workers.dev/" | head -c 2000
+          echo
+          echo "--- carlylemiller.dev status ---"
+          curl -sS -o /dev/null -w "%{http_code}\n" "https://carlylemiller.dev/"
+          echo "--- carlylemiller.dev headers ---"
+          curl -sSI "https://carlylemiller.dev/"
+          echo "--- carlylemiller.dev body (first 2KB) ---"
+          curl -sS "https://carlylemiller.dev/" | head -c 2000
