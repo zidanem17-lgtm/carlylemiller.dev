@@ -27,3 +27,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: .output/server
           command: deploy
+          wranglerVersion: "4"
