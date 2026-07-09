@@ -95,7 +95,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "An interactive 3D portfolio spanning digital forensics, email threat analysis, and security operations.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://carlylemiller.dev" },
+      { property: "og:image", content: "https://carlylemiller.dev/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Carlyle Miller — Cybersecurity & Digital Forensics" },
+      {
+        name: "twitter:description",
+        content:
+          "An interactive 3D portfolio spanning digital forensics, email threat analysis, and security operations.",
+      },
+      { name: "twitter:image", content: "https://carlylemiller.dev/og-image.jpg" },
     ],
     links: [
       {
