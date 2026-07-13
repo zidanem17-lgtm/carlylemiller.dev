@@ -5,7 +5,10 @@ const TERMINAL = [
   { cmd: "whoami", out: "Carlyle Miller" },
   { cmd: "focus", out: "DFIR · SOC · Email Security · Cyber Ops" },
   { cmd: "projects", out: "MailFort · Forenstix · PhishFinder" },
-  { cmd: "credentials", out: "Network+ · Security+ · CySA+ · SecAI+ · CSAP · SecurityX" },
+  {
+    cmd: "credentials",
+    out: "Network+ · Security+ · CySA+ · SecAI+ · CSAP · SecurityX · COITB Web Designer",
+  },
 ];
 
 export function Hero() {

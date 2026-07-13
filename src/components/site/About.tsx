@@ -4,7 +4,7 @@ import { SectionLabel } from "./SectionLabel";
 const STATS = [
   { value: "10", label: "Years Learning" },
   { value: "7", label: "Years Practicing" },
-  { value: "6", label: "Certifications" },
+  { value: "7", label: "Certifications" },
   { value: "3", label: "Deployed Tools" },
 ];
 
