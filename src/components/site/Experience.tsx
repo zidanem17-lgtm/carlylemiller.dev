@@ -1,7 +1,15 @@
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
 
-const CERTS = ["Network+", "Security+", "CySA+", "SecAI+", "CSAP", "SecurityX"];
+const CERTS = [
+  "Network+",
+  "Security+",
+  "CySA+",
+  "SecAI+",
+  "CSAP",
+  "SecurityX",
+  "COITB HTML/CSS Web Designer",
+];
 
 const ITEMS = [
   {
@@ -48,7 +56,7 @@ export function Experience() {
                 </span>
               ))}
             </div>
-            <p className="mt-5 text-sm text-muted-foreground">All CompTIA. Expiring 2029.</p>
+            <p className="mt-5 text-sm text-muted-foreground">CompTIA certifications expiring 2029.</p>
           </Reveal>
         </div>
       </div>
