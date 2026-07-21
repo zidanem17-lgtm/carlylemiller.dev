@@ -1,7 +1,11 @@
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
 
-export function Contact() {
+const DEFAULT_DESCRIPTION =
+  "Open to cybersecurity, digital forensics, SOC, SIEM, and federal or defense contractor " +
+  "opportunities aligned with mission-focused security work.";
+
+export function Contact({ description = DEFAULT_DESCRIPTION }: { description?: string }) {
   return (
     <section id="contact" className="relative border-t border-border py-28">
       <div className="mx-auto max-w-4xl px-6 text-center">
@@ -13,8 +17,7 @@ export function Contact() {
             Let&rsquo;s <span className="italic text-gradient">connect.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Open to cybersecurity, digital forensics, SOC, SIEM, and federal or defense contractor
-            opportunities aligned with mission-focused security work.
+            {description}
           </p>
         </Reveal>
         <Reveal delay={160} className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -52,7 +55,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
         <span className="font-mono text-sm text-muted-foreground">carlylemiller.dev</span>
         <span className="font-mono text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Carlyle Miller
+          © 2016 Carlyle Miller
         </span>
       </div>
     </footer>
