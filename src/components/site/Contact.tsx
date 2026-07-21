@@ -55,7 +55,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
         <span className="font-mono text-sm text-muted-foreground">carlylemiller.dev</span>
         <span className="font-mono text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Carlyle Miller
+          © 2016 Carlyle Miller
         </span>
       </div>
     </footer>
